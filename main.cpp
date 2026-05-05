@@ -1,7 +1,7 @@
 #include <iostream>
 #include "geradores/geradores.h"
 
-// g++ main.cpp geradores/geradores.cpp -o programa
+// g++ main.cpp geradores/geradores.cpp ordenadores/*.cpp -o programa
 
 int main()
 {
