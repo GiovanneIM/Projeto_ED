@@ -24,16 +24,27 @@ struct Metricas
 
     /// Quantidade estimada de memória auxiliar utilizada, em bytes
     size_t memoriaAuxiliarBytes = 0;
+
+    /// Redefine os valores das métricas
+    void reset()
+    {
+        comparacoes = 0;
+        trocas = 0;
+        acessos = 0;
+        profundidadeRecursao = 0;
+        tempoSegundos = 0.0;
+        memoriaAuxiliarBytes = 0;
+    }
 };
 
 class Instrumentador
 {
 public:
-    static void reset(Metricas &m);
-    static void registrarComparacao(Metricas &m);
-    static void registrarTroca(Metricas &m);
-    static void registrarAcesso(Metricas &m);
-    static void registrarProfundidade(Metricas &m, int atual);
+    static void registrarComparacao(Metricas &m) { m.comparacoes++; }
+    static void registrarTroca(Metricas &m) { m.trocas++; }
+    static void registrarAcesso(Metricas &m) { m.acessos++; }
+    static void registrarAcessos(Metricas &m, int qtd) { m.acessos += qtd; }
+    static void registrarProfundidade(Metricas &m, int atual) { m.profundidadeRecursao++; };
 
     template <typename Func>
     static double medirTempo(Func &&func)
@@ -42,5 +53,15 @@ public:
         func();
         auto fim = std::chrono::high_resolution_clock::now();
         return std::chrono::duration<double>(fim - inicio).count();
+    }
+
+    template <typename Func>
+    static Metricas executarComMetricas(Func &&func)
+    {
+        Metricas m;
+        double tempo = medirTempo([&]()
+                                  { func(m); });
+        m.tempoSegundos = tempo;
+        return m;
     }
 };

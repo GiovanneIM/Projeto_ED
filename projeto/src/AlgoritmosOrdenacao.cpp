@@ -1,4 +1,4 @@
-#include "AlgoritmosOrdenacao.hpp"
+#include "../include/AlgoritmosOrdenacao.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cstring>

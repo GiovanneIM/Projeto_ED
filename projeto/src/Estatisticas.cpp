@@ -1,4 +1,4 @@
-#include "Estatisticas.hpp"
+#include "../include/Estatisticas.hpp"
 #include <algorithm>
 #include <numeric>
 

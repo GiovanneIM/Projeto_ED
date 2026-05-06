@@ -1,4 +1,4 @@
-#include "GeradorVetores.hpp"
+#include "../include/GeradorVetores.hpp"
 #include <algorithm>
 #include <random>
 
