@@ -1,4 +1,3 @@
-// GeradorVetores.cpp
 #include "GeradorVetores.hpp"
 #include <algorithm>
 #include <random>
