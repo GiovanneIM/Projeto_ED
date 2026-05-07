@@ -1,4 +1,4 @@
-#include "Benchmarck.hpp"
+#include "BenchmarkBusca.hpp"
 #include "GeradorVetores.hpp"
 #include "Instrumentacao.hpp"
 #include <iostream>

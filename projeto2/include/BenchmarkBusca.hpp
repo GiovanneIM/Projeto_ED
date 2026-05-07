@@ -1,5 +1,5 @@
-#ifndef BENCHMARK_HPP
-#define BENCHMARK_HPP
+#ifndef BENCHMARK_BUSCA_HPP
+#define BENCHMARK_BUSCA_HPP
 
 #include <vector>
 #include <string>

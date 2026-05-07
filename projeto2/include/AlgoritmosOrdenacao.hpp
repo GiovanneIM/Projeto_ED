@@ -1,30 +1,14 @@
 #ifndef ALGORITMOS_ORDENACAO_HPP
 #define ALGORITMOS_ORDENACAO_HPP
 
-#include "Instrumentacao.hpp"
 #include <vector>
+#include "Instrumentacao.hpp"
 
-class AlgoritmosOrdenacao {
-  public:
+class AlgoritmosOrdenacao
+{
+public:
     // ALGORITMOS OBRIGATÓRIOS
 
-    /**
-     * @brief Compara elementos adjacentes do vetor e troca de posição quando estão fora de ordem.
-     * A cada passagem completa, o maior elemento vai para o final do vetor
-     * 
-     * [5, 1, 4, 2, 8]
-     * 1ª Pasagem: 
-     * • Compara 5 e 1 → troca → [1, 5, 4, 2, 8]
-     * • Compara 5 e 4 → troca → [1, 4, 5, 2, 8]
-     * • Compara 5 e 2 → troca → [1, 4, 2, 5, 8]
-     * • Compara 5 e 8 → não troca
-     * - O 8 já está na posição final correta.
-     * 
-     * 2ª Passagem:
-     * • Compara 1 e 4 → não troca
-     * • Compara 4 e 2 → troca → [1, 2, 4, 5, 8]
-     * • Compara 4 e 5 → não troca
-     */
     static void bubbleSort(std::vector<int> &arr, Metricas &m);
     static void insertionSort(std::vector<int> &arr, Metricas &m);
     static void selectionSort(std::vector<int> &arr, Metricas &m);
@@ -39,25 +23,22 @@ class AlgoritmosOrdenacao {
     static void countingSort(std::vector<int> &arr, Metricas &m, int maxValor = -1);
     static void radixSort(std::vector<int> &arr, Metricas &m);
 
-  private:
+private:
     // FUNÇÕES AUXILIARES
 
-    static void merge(std::vector<int> &arr, int esq, int meio, int dir, std::vector<int> &aux,
-                      Metricas &m);
-    static void mergeSortRecursivo(std::vector<int> &arr, int esq, int dir, std::vector<int> &aux,
-                                   Metricas &m, int profundidade);
+    static void merge(std::vector<int> &arr, int esq, int meio, int dir, std::vector<int> &aux, Metricas &m);
+    static void mergeSortRecursivo(std::vector<int> &arr, int esq, int dir, std::vector<int> &aux, Metricas &m, int profundidade);
 
     static int partition(std::vector<int> &arr, int baixo, int alto, Metricas &m);
     static int partitionRandomizado(std::vector<int> &arr, int baixo, int alto, Metricas &m);
-    static void quickSortRecursivo(std::vector<int> &arr, int baixo, int alto, Metricas &m,
-                                   int profundidade);
+    static void quickSortRecursivo(std::vector<int> &arr, int baixo, int alto, Metricas &m, int profundidade);
 
     static void heapify(std::vector<int> &arr, int n, int i, Metricas &m);
 
     static void countingSortPorDigito(std::vector<int> &arr, int exp, Metricas &m);
 
     // UTILITÁRIOS
-
+    
     static void swap(int &a, int &b, Metricas &m);
 };
 
