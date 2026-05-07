@@ -7,7 +7,8 @@
 class AlgoritmosOrdenacao
 {
 public:
-    // Algoritmos obrigatórios
+    // ALGORITMOS OBRIGATÓRIOS
+
     static void bubbleSort(std::vector<int> &arr, Metricas &m);
     static void insertionSort(std::vector<int> &arr, Metricas &m);
     static void selectionSort(std::vector<int> &arr, Metricas &m);
@@ -17,12 +18,14 @@ public:
     static void heapSort(std::vector<int> &arr, Metricas &m);
     static void shellSort(std::vector<int> &arr, Metricas &m);
 
-    // Algoritmos opcionais (bônus)
+    // ALGORITMOS OPCIONAIS
+
     static void countingSort(std::vector<int> &arr, Metricas &m, int maxValor = -1);
     static void radixSort(std::vector<int> &arr, Metricas &m);
 
 private:
-    // Funções auxiliares
+    // FUNÇÕES AUXILIARES
+
     static void merge(std::vector<int> &arr, int esq, int meio, int dir, std::vector<int> &aux, Metricas &m);
     static void mergeSortRecursivo(std::vector<int> &arr, int esq, int dir, std::vector<int> &aux, Metricas &m, int profundidade);
 
@@ -34,7 +37,8 @@ private:
 
     static void countingSortPorDigito(std::vector<int> &arr, int exp, Metricas &m);
 
-    // Utilitários
+    // UTILITÁRIOS
+    
     static void swap(int &a, int &b, Metricas &m);
 };
 

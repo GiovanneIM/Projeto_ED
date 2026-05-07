@@ -1,0 +1,1 @@
+g++ projeto/main.cpp projeto/src/*.cpp -I projeto/include -o projeto.exe
