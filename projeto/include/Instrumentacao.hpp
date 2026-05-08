@@ -1,4 +1,6 @@
-#pragma once
+#ifndef INSTRUMENTACAO_HPP
+#define INSTRUMENTACAO_HPP
+
 #include <chrono>
 #include <vector>
 
@@ -6,25 +8,12 @@
  * @brief Estrutura para armazenar métricas registradas durante a execução de um algoritmo
  */
 struct Metricas {
-    /// TOTAL DE COMPARAÇÕES
     long long comparacoes = 0;
-
-    /// TOTAL DE TROCAS OU MOVIMENTAÇÕES
     long long trocas = 0;
-
-    /// NÚMERO DE ACESSOS
     long long acessos = 0;
-
-    /// NÚMERO DE ITERAÇÕES
     int iteracoes = 0;
-
-    /// PROFUNDIDADE MÁXIMA DE RECURSÃO
     int profundidadeRecursao = 0;
-
-    /// TEMPO DE EXECUÇÃO (Em segundos)
-    double tempoSegundos = 0.0;
-
-    /// QUANTIDADE ESTIMADA DE MEMÓRIA AUXILIAR UTILIZADA (Em bytes)
+    double tempo = 0.0;
     size_t memoriaAuxiliarBytes = 0;
 
     /// REDEFINE OS VALORES DA MÉTRICA
@@ -34,7 +23,7 @@ struct Metricas {
         trocas = 0;
         acessos = 0;
         profundidadeRecursao = 0;
-        tempoSegundos = 0.0;
+        tempo = 0.0;
         memoriaAuxiliarBytes = 0;
     }
 };
@@ -63,3 +52,5 @@ class Instrumentador {
         return std::chrono::duration<double>(fim - inicio).count();
     }
 };
+
+#endif

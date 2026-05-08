@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GERADOR_VETORES_HPP
+#define GERADOR_VETORES_HPP
+
 #include <vector>
 #include <random>
 
@@ -72,3 +74,6 @@ public:
      */
     static std::vector<int> gaussiano(size_t n, double media = 500000, double desvio = 150000);
 };
+
+
+#endif

@@ -64,7 +64,7 @@ void AlgoritmosOrdenacao::insertionSort(std::vector<int> &arr, Metricas &m)
         // PERCORRE A PARTE ORDENADA DO VETOR,
         // DESLOCANDO OS ELEMENTOS MAIORES QUE A CHAVE
         while (j >= 0) {
-            // COMPARAÇÃO DO WHILE
+            // COMPARAÇÃO COM A CHAVE
             m.comparacoes++;
 
             // LEITURA DE arr[j]
@@ -83,6 +83,8 @@ void AlgoritmosOrdenacao::insertionSort(std::vector<int> &arr, Metricas &m)
 
                 // AVANÇA PARA O ELEMENTO ANTERIOR
                 j--;
+            } else {
+                break;
             }
 
             // EVITA ACESSAR POSIÇÃO INVÁLIDA
@@ -441,10 +443,10 @@ void AlgoritmosOrdenacao::quickSortRecursivoRandomizado(std::vector<int> &arr, i
 void AlgoritmosOrdenacao::heapSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    size_t n = arr.size();
+    int  n = static_cast<int>(arr.size());
 
     // CONSTRÓI O MAX HEAP A PARTIR DOS ELEMENTOS NÃO-FOLHA
-    for (size_t i = n / 2 - 1; i >= 0; --i) {
+    for (int  i = n / 2 - 1; i >= 0; --i) {
 
         // AJUSTA A PROPRIEDADE DO HEAP
         heapify(arr, n, i, m, 0);

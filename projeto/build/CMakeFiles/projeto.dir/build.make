@@ -111,38 +111,10 @@ CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/Projeto_ED/projeto/src/AlgoritmosOrdenacao.cpp -o CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.s
 
-CMakeFiles/projeto.dir/src/Benchmark.cpp.o: CMakeFiles/projeto.dir/flags.make
-CMakeFiles/projeto.dir/src/Benchmark.cpp.o: /workspaces/Projeto_ED/projeto/src/Benchmark.cpp
-CMakeFiles/projeto.dir/src/Benchmark.cpp.o: CMakeFiles/projeto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/projeto.dir/src/Benchmark.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projeto.dir/src/Benchmark.cpp.o -MF CMakeFiles/projeto.dir/src/Benchmark.cpp.o.d -o CMakeFiles/projeto.dir/src/Benchmark.cpp.o -c /workspaces/Projeto_ED/projeto/src/Benchmark.cpp
-
-CMakeFiles/projeto.dir/src/Benchmark.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projeto.dir/src/Benchmark.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/Projeto_ED/projeto/src/Benchmark.cpp > CMakeFiles/projeto.dir/src/Benchmark.cpp.i
-
-CMakeFiles/projeto.dir/src/Benchmark.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projeto.dir/src/Benchmark.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/Projeto_ED/projeto/src/Benchmark.cpp -o CMakeFiles/projeto.dir/src/Benchmark.cpp.s
-
-CMakeFiles/projeto.dir/src/Estatisticas.cpp.o: CMakeFiles/projeto.dir/flags.make
-CMakeFiles/projeto.dir/src/Estatisticas.cpp.o: /workspaces/Projeto_ED/projeto/src/Estatisticas.cpp
-CMakeFiles/projeto.dir/src/Estatisticas.cpp.o: CMakeFiles/projeto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/projeto.dir/src/Estatisticas.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projeto.dir/src/Estatisticas.cpp.o -MF CMakeFiles/projeto.dir/src/Estatisticas.cpp.o.d -o CMakeFiles/projeto.dir/src/Estatisticas.cpp.o -c /workspaces/Projeto_ED/projeto/src/Estatisticas.cpp
-
-CMakeFiles/projeto.dir/src/Estatisticas.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projeto.dir/src/Estatisticas.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/Projeto_ED/projeto/src/Estatisticas.cpp > CMakeFiles/projeto.dir/src/Estatisticas.cpp.i
-
-CMakeFiles/projeto.dir/src/Estatisticas.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projeto.dir/src/Estatisticas.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/Projeto_ED/projeto/src/Estatisticas.cpp -o CMakeFiles/projeto.dir/src/Estatisticas.cpp.s
-
 CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o: CMakeFiles/projeto.dir/flags.make
 CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o: /workspaces/Projeto_ED/projeto/src/GeradorVetores.cpp
 CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o: CMakeFiles/projeto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o -MF CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o.d -o CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o -c /workspaces/Projeto_ED/projeto/src/GeradorVetores.cpp
 
 CMakeFiles/projeto.dir/src/GeradorVetores.cpp.i: cmake_force
@@ -153,29 +125,12 @@ CMakeFiles/projeto.dir/src/GeradorVetores.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projeto.dir/src/GeradorVetores.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/Projeto_ED/projeto/src/GeradorVetores.cpp -o CMakeFiles/projeto.dir/src/GeradorVetores.cpp.s
 
-CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o: CMakeFiles/projeto.dir/flags.make
-CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o: /workspaces/Projeto_ED/projeto/src/Instrumentacao.cpp
-CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o: CMakeFiles/projeto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o -MF CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o.d -o CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o -c /workspaces/Projeto_ED/projeto/src/Instrumentacao.cpp
-
-CMakeFiles/projeto.dir/src/Instrumentacao.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projeto.dir/src/Instrumentacao.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/Projeto_ED/projeto/src/Instrumentacao.cpp > CMakeFiles/projeto.dir/src/Instrumentacao.cpp.i
-
-CMakeFiles/projeto.dir/src/Instrumentacao.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projeto.dir/src/Instrumentacao.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/Projeto_ED/projeto/src/Instrumentacao.cpp -o CMakeFiles/projeto.dir/src/Instrumentacao.cpp.s
-
 # Object files for target projeto
 projeto_OBJECTS = \
 "CMakeFiles/projeto.dir/main.cpp.o" \
 "CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o" \
 "CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o" \
-"CMakeFiles/projeto.dir/src/Benchmark.cpp.o" \
-"CMakeFiles/projeto.dir/src/Estatisticas.cpp.o" \
-"CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o" \
-"CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o"
+"CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o"
 
 # External object files for target projeto
 projeto_EXTERNAL_OBJECTS =
@@ -183,13 +138,10 @@ projeto_EXTERNAL_OBJECTS =
 projeto: CMakeFiles/projeto.dir/main.cpp.o
 projeto: CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o
 projeto: CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o
-projeto: CMakeFiles/projeto.dir/src/Benchmark.cpp.o
-projeto: CMakeFiles/projeto.dir/src/Estatisticas.cpp.o
 projeto: CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o
-projeto: CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o
 projeto: CMakeFiles/projeto.dir/build.make
 projeto: CMakeFiles/projeto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable projeto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/Projeto_ED/projeto/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable projeto"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/projeto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

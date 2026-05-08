@@ -11,10 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/Projeto_ED/projeto/main.cpp" "CMakeFiles/projeto.dir/main.cpp.o" "gcc" "CMakeFiles/projeto.dir/main.cpp.o.d"
   "/workspaces/Projeto_ED/projeto/src/AlgoritmosBusca.cpp" "CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o.d"
   "/workspaces/Projeto_ED/projeto/src/AlgoritmosOrdenacao.cpp" "CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o.d"
-  "/workspaces/Projeto_ED/projeto/src/Benchmark.cpp" "CMakeFiles/projeto.dir/src/Benchmark.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/Benchmark.cpp.o.d"
-  "/workspaces/Projeto_ED/projeto/src/Estatisticas.cpp" "CMakeFiles/projeto.dir/src/Estatisticas.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/Estatisticas.cpp.o.d"
   "/workspaces/Projeto_ED/projeto/src/GeradorVetores.cpp" "CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o.d"
-  "/workspaces/Projeto_ED/projeto/src/Instrumentacao.cpp" "CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o" "gcc" "CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

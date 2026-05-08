@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named projeto
+# Target rules for targets named projeto.exe
 
 # Build rule for target.
-projeto: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projeto
-.PHONY : projeto
+projeto.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projeto.exe
+.PHONY : projeto.exe
 
 # fast build rule for target.
-projeto/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/build
-.PHONY : projeto/fast
+projeto.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/build
+.PHONY : projeto.exe/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/AlgoritmosBusca.o: src/AlgoritmosBusca.cpp.o
@@ -158,7 +158,7 @@ src/AlgoritmosBusca.o: src/AlgoritmosBusca.cpp.o
 
 # target to build an object file
 src/AlgoritmosBusca.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosBusca.cpp.o
 .PHONY : src/AlgoritmosBusca.cpp.o
 
 src/AlgoritmosBusca.i: src/AlgoritmosBusca.cpp.i
@@ -166,7 +166,7 @@ src/AlgoritmosBusca.i: src/AlgoritmosBusca.cpp.i
 
 # target to preprocess a source file
 src/AlgoritmosBusca.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosBusca.cpp.i
 .PHONY : src/AlgoritmosBusca.cpp.i
 
 src/AlgoritmosBusca.s: src/AlgoritmosBusca.cpp.s
@@ -174,7 +174,7 @@ src/AlgoritmosBusca.s: src/AlgoritmosBusca.cpp.s
 
 # target to generate assembly for a file
 src/AlgoritmosBusca.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosBusca.cpp.s
 .PHONY : src/AlgoritmosBusca.cpp.s
 
 src/AlgoritmosOrdenacao.o: src/AlgoritmosOrdenacao.cpp.o
@@ -182,7 +182,7 @@ src/AlgoritmosOrdenacao.o: src/AlgoritmosOrdenacao.cpp.o
 
 # target to build an object file
 src/AlgoritmosOrdenacao.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosOrdenacao.cpp.o
 .PHONY : src/AlgoritmosOrdenacao.cpp.o
 
 src/AlgoritmosOrdenacao.i: src/AlgoritmosOrdenacao.cpp.i
@@ -190,7 +190,7 @@ src/AlgoritmosOrdenacao.i: src/AlgoritmosOrdenacao.cpp.i
 
 # target to preprocess a source file
 src/AlgoritmosOrdenacao.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosOrdenacao.cpp.i
 .PHONY : src/AlgoritmosOrdenacao.cpp.i
 
 src/AlgoritmosOrdenacao.s: src/AlgoritmosOrdenacao.cpp.s
@@ -198,63 +198,15 @@ src/AlgoritmosOrdenacao.s: src/AlgoritmosOrdenacao.cpp.s
 
 # target to generate assembly for a file
 src/AlgoritmosOrdenacao.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/AlgoritmosOrdenacao.cpp.s
 .PHONY : src/AlgoritmosOrdenacao.cpp.s
-
-src/Benchmark.o: src/Benchmark.cpp.o
-.PHONY : src/Benchmark.o
-
-# target to build an object file
-src/Benchmark.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Benchmark.cpp.o
-.PHONY : src/Benchmark.cpp.o
-
-src/Benchmark.i: src/Benchmark.cpp.i
-.PHONY : src/Benchmark.i
-
-# target to preprocess a source file
-src/Benchmark.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Benchmark.cpp.i
-.PHONY : src/Benchmark.cpp.i
-
-src/Benchmark.s: src/Benchmark.cpp.s
-.PHONY : src/Benchmark.s
-
-# target to generate assembly for a file
-src/Benchmark.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Benchmark.cpp.s
-.PHONY : src/Benchmark.cpp.s
-
-src/Estatisticas.o: src/Estatisticas.cpp.o
-.PHONY : src/Estatisticas.o
-
-# target to build an object file
-src/Estatisticas.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Estatisticas.cpp.o
-.PHONY : src/Estatisticas.cpp.o
-
-src/Estatisticas.i: src/Estatisticas.cpp.i
-.PHONY : src/Estatisticas.i
-
-# target to preprocess a source file
-src/Estatisticas.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Estatisticas.cpp.i
-.PHONY : src/Estatisticas.cpp.i
-
-src/Estatisticas.s: src/Estatisticas.cpp.s
-.PHONY : src/Estatisticas.s
-
-# target to generate assembly for a file
-src/Estatisticas.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Estatisticas.cpp.s
-.PHONY : src/Estatisticas.cpp.s
 
 src/GeradorVetores.o: src/GeradorVetores.cpp.o
 .PHONY : src/GeradorVetores.o
 
 # target to build an object file
 src/GeradorVetores.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/GeradorVetores.cpp.o
 .PHONY : src/GeradorVetores.cpp.o
 
 src/GeradorVetores.i: src/GeradorVetores.cpp.i
@@ -262,7 +214,7 @@ src/GeradorVetores.i: src/GeradorVetores.cpp.i
 
 # target to preprocess a source file
 src/GeradorVetores.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/GeradorVetores.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/GeradorVetores.cpp.i
 .PHONY : src/GeradorVetores.cpp.i
 
 src/GeradorVetores.s: src/GeradorVetores.cpp.s
@@ -270,32 +222,8 @@ src/GeradorVetores.s: src/GeradorVetores.cpp.s
 
 # target to generate assembly for a file
 src/GeradorVetores.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/GeradorVetores.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.exe.dir/build.make CMakeFiles/projeto.exe.dir/src/GeradorVetores.cpp.s
 .PHONY : src/GeradorVetores.cpp.s
-
-src/Instrumentacao.o: src/Instrumentacao.cpp.o
-.PHONY : src/Instrumentacao.o
-
-# target to build an object file
-src/Instrumentacao.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o
-.PHONY : src/Instrumentacao.cpp.o
-
-src/Instrumentacao.i: src/Instrumentacao.cpp.i
-.PHONY : src/Instrumentacao.i
-
-# target to preprocess a source file
-src/Instrumentacao.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Instrumentacao.cpp.i
-.PHONY : src/Instrumentacao.cpp.i
-
-src/Instrumentacao.s: src/Instrumentacao.cpp.s
-.PHONY : src/Instrumentacao.s
-
-# target to generate assembly for a file
-src/Instrumentacao.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projeto.dir/build.make CMakeFiles/projeto.dir/src/Instrumentacao.cpp.s
-.PHONY : src/Instrumentacao.cpp.s
 
 # Help Target
 help:
@@ -305,7 +233,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... projeto"
+	@echo "... projeto.exe"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -315,18 +243,9 @@ help:
 	@echo "... src/AlgoritmosOrdenacao.o"
 	@echo "... src/AlgoritmosOrdenacao.i"
 	@echo "... src/AlgoritmosOrdenacao.s"
-	@echo "... src/Benchmark.o"
-	@echo "... src/Benchmark.i"
-	@echo "... src/Benchmark.s"
-	@echo "... src/Estatisticas.o"
-	@echo "... src/Estatisticas.i"
-	@echo "... src/Estatisticas.s"
 	@echo "... src/GeradorVetores.o"
 	@echo "... src/GeradorVetores.i"
 	@echo "... src/GeradorVetores.s"
-	@echo "... src/Instrumentacao.o"
-	@echo "... src/Instrumentacao.i"
-	@echo "... src/Instrumentacao.s"
 .PHONY : help
 
 
