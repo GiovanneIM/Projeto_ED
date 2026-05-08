@@ -104,7 +104,7 @@ Resultado: `[1, 2, 3, 4, 5, 6]`
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
@@ -156,7 +156,7 @@ Resultado: `[1, 2, 3, 4, 5, 6]`
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
@@ -213,7 +213,7 @@ Comparando elemento por elemento, obtém-se:
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
@@ -270,7 +270,7 @@ Resultado: `[1, 2, 3, 4, 5, 6]`
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
@@ -316,7 +316,7 @@ Ao escolher um **pivô aleatório reduz-se significativamente a chance de desse 
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
@@ -397,7 +397,7 @@ Resultado final: `[1, 3, 4, 5, 10]`
 
 
 
-<div style="background: gray; height: 0.5rem; margin-top: 3rem"></div>
+<hr style="margin: 3rem 0;">
 
 
 
