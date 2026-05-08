@@ -64,27 +64,29 @@ void AlgoritmosOrdenacao::insertionSort(std::vector<int> &arr, Metricas &m)
         // ÍNDICE DO ÚLTIMO ELEMENTO DA PARTE ORDENADA
         int j = i - 1;
 
-        // PRIMEIRA COMPARAÇÃO DO WHILE
-        m.comparacoes++;
-
-        // LEITURA DE arr[j]
-        m.acessos++;
-
         // PERCORRE A PARTE ORDENADA DO VETOR,
         // DESLOCANDO OS ELEMENTOS MAIORES QUE A CHAVE
-        while (j >= 0 && arr[j] > chave) {
+        while (j >= 0) {
+            // COMPARAÇÃO DO WHILE
+            m.comparacoes++;
 
-            // MOVE O ELEMENTO UMA POSIÇÃO À DIREITA
-            arr[j + 1] = arr[j];
+            // LEITURA DE arr[j]
+            m.acessos++;
 
-            // CONTABILIZA A MOVIMENTAÇÃO
-            m.trocas++;
+            if (arr[j] > chave) {
 
-            // LEITURA DE arr[j] E ESCRITA EM arr[j+1]
-            m.acessos += 2;
+                // MOVE O ELEMENTO UMA POSIÇÃO À DIREITA
+                arr[j + 1] = arr[j];
 
-            // AVANÇA PARA O ELEMENTO ANTERIOR
-            j--;
+                // CONTABILIZA A MOVIMENTAÇÃO
+                m.trocas++;
+
+                // LEITURA DE arr[j] E ESCRITA EM arr[j+1]
+                m.acessos += 2;
+
+                // AVANÇA PARA O ELEMENTO ANTERIOR
+                j--;
+            }
 
             // EVITA ACESSAR POSIÇÃO INVÁLIDA
             if (j >= 0) {
@@ -175,12 +177,12 @@ void AlgoritmosOrdenacao::mergeSort(std::vector<int> &arr, Metricas &m)
     // CRIANDO VETOR AUXILIAR
     std::vector<int> aux(n);
 
-    // MEMÓRIA AUXILIAR
-    // Vetor auxiliar utilizado durante o merge
-    m.memoriaAuxiliarBytes = n * sizeof(int);
-
     // INICIA O MERGE SORT RECURSIVO
     mergeSortRecursivo(arr, 0, n - 1, aux, m, 0);
+
+    // MEMÓRIA AUXILIAR
+    // Vetor auxiliar utilizado durante o merge
+    m.memoriaAuxiliarBytes = (n * sizeof(int)) + (m.profundidadeRecursao * sizeof(int) * 4);
 }
 
 void AlgoritmosOrdenacao::mergeSortRecursivo(std::vector<int> &arr, int esq, int dir,
@@ -349,12 +351,16 @@ int AlgoritmosOrdenacao::partition(std::vector<int> &arr, int baixo, int alto, M
             i++;
 
             // REALIZA A TROCA DOS ELEMENTOS
-            swap(arr[i], arr[j], m);
+            if (i != j) {
+                swap(arr[i], arr[j], m);
+            }
         }
     }
 
     // POSICIONA O PIVÔ NA POSIÇÃO CORRETA
-    swap(arr[i + 1], arr[alto], m);
+    if (i + 1 != alto) {
+        swap(arr[i + 1], arr[alto], m);
+    }
 
     // RETORNA O ÍNDICE DO PIVÔ
     return i + 1;
@@ -404,7 +410,9 @@ int AlgoritmosOrdenacao::partitionRandomizado(std::vector<int> &arr, int baixo, 
     int randomIdx = dist(gen);
 
     // MOVE O PIVÔ PARA O FINAL
-    swap(arr[randomIdx], arr[alto], m);
+    if (randomIdx != alto) {
+        swap(arr[randomIdx], arr[alto], m);
+    }
 
     // PARTICIONA O VETOR
     return partition(arr, baixo, alto, m);
@@ -514,7 +522,7 @@ void AlgoritmosOrdenacao::heapify(std::vector<int> &arr, int n, int i, Metricas 
         swap(arr[i], arr[maior], m);
 
         // REORGANIZA O HEAP RECURSIVAMENTE
-        heapify(arr, n, maior, m);
+        heapify(arr, n, maior, m, profundidade + 1);
     }
 }
 
@@ -549,14 +557,13 @@ void AlgoritmosOrdenacao::shellSort(std::vector<int> &arr, Metricas &m)
             // ÍNDICE DA POSIÇÃO ATUAL
             int j = i;
 
-            // PRIMEIRA COMPARAÇÃO DO WHILE
-            m.comparacoes++;
-
-            // LEITURA DE arr[j-gap]
-            m.acessos++;
-
             // REALIZA O INSERTION SORT COM DISTÂNCIA gap
             while (j >= gap && arr[j - gap] > temp) {
+                // COMPARAÇÃO DO WHILE
+                m.comparacoes++;
+
+                // LEITURA DE arr[j-gap]
+                m.acessos++;
 
                 // MOVE O ELEMENTO PARA A DIREITA
                 arr[j] = arr[j - gap];

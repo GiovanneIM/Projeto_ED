@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/projeto.dir/main.cpp.o CMakeFiles/projeto.dir/src/AlgoritmosBusca.cpp.o CMakeFiles/projeto.dir/src/AlgoritmosOrdenacao.cpp.o CMakeFiles/projeto.dir/src/Benchmark.cpp.o CMakeFiles/projeto.dir/src/Estatisticas.cpp.o CMakeFiles/projeto.dir/src/GeradorVetores.cpp.o CMakeFiles/projeto.dir/src/Instrumentacao.cpp.o -o projeto 
