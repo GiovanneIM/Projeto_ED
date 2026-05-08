@@ -15,7 +15,10 @@ struct Metricas {
     /// NÚMERO DE ACESSOS
     long long acessos = 0;
 
-    /// PROFUNDIADE MÁXIMA DE RECURSÃO
+    /// NÚMERO DE ITERAÇÕES
+    int iteracoes = 0;
+
+    /// PROFUNDIDADE MÁXIMA DE RECURSÃO
     int profundidadeRecursao = 0;
 
     /// TEMPO DE EXECUÇÃO (Em segundos)

@@ -1,61 +1,50 @@
 #ifndef ALGORITMOS_BUSCA_HPP
 #define ALGORITMOS_BUSCA_HPP
 
-#include <vector>
 #include "Instrumentacao.hpp"
-
-// Estrutura especializada para busca binária instrumentada
-struct MetricasBuscaBinaria {
-    long long comparacoes = 0;
-    long long acessos = 0;
-    int iteracoes = 0;
-    double tempoSegundos = 0.0;
-    
-    void reset() {
-        comparacoes = 0;
-        acessos = 0;
-        iteracoes = 0;
-        tempoSegundos = 0.0;
-    }
-};
+#include <vector>
 
 class AlgoritmosBusca {
-public:
+  public:
     /**
-     * @brief Busca um elemento alvo em um vetor, mede as métricas do algoritmo
+     * @brief Busca um elemento alvo em um vetor, percorrendo o vetor
      *
      * @param arr Vetor em que o elemento é buscado
      * @param alvo Elemento a ser buscado no vetor
-     * @param m Instância da classe Metricas para armazenar as métricas de operação da busca (acessos e comparações)
-     * 
-     * @return Índice do elemento alvo dentro do vetor ou -1, caso o elemento não tenha sido encontrado
+     *
+     * @return Índice do elemento alvo dentro do vetor ou -1, caso o elemento não tenha sido
+     * encontrado
      */
-    static int buscaSequencial(const std::vector<int>& arr, int alvo, Metricas& m);
-    
+    static int buscaSequencial(const std::vector<int> &arr, int alvo);
 
+    /**
+     * @brief Busca um elemento alvo em um vetor, usando busca binária
+     *
+     * @param arr Vetor em que o elemento é buscado
+     * @param alvo Elemento a ser buscado no vetor
+     *
+     * @return Índice do elemento alvo dentro do vetor ou -1, caso o elemento não tenha sido
+     * encontrado
+     * 
+     * @note O vetor deve estar ordenado em ordem crescente.
+     */
+    static int buscaBinaria(const std::vector<int> &arr, int alvo);
 
-    // Busca binária clássica (retorna índice, usa métricas padrão)
-    static int buscaBinaria(const std::vector<int>& arr, int alvo, Metricas& m);
-    
-    // Busca binária instrumentada (registra comparações e acessos detalhadamente)
-    static int buscaBinariaInstrumentada(const std::vector<int>& arr, int alvo, MetricasBuscaBinaria& m);
-    
-    // Versão recursiva da busca binária (para análise de profundidade)
-    static int buscaBinariaRecursiva(const std::vector<int>& arr, int alvo, Metricas& m);
-    
-    // Busca sequencial com sentinela (otimização)
-    static int buscaSequencialSentinela(std::vector<int>& arr, int alvo, Metricas& m);
-    
-    // Busca ternária (para comparação)
-    static int buscaTernaria(const std::vector<int>& arr, int alvo, Metricas& m);
-    
-    // Funções auxiliares para testes
-    static bool vetorOrdenado(const std::vector<int>& arr);
-    static void ordenarVetor(std::vector<int>& arr, Metricas& m); // usando Insertion Sort para pequenos vetores
-    
-private:
-    // Função auxiliar recursiva para busca binária
-    static int buscaBinariaRecursivaAux(const std::vector<int>& arr, int esq, int dir, int alvo, Metricas& m, int& profundidade);
+    /**
+     * @brief Busca um elemento alvo em um vetor, usando busca binária e calcula as métricas de
+     * execução
+     *
+     * @param arr Vetor em que o elemento é buscado
+     * @param alvo Elemento a ser buscado no vetor
+     * @param m Instância da struct Metricas para armazenar as métricas de execução da busca
+     * (acessos e comparações)
+     *
+     * @return Índice do elemento alvo dentro do vetor ou -1, caso o elemento não tenha sido
+     * encontrado
+     * 
+     * @note O vetor deve estar ordenado em ordem crescente.
+     */
+    static int buscaBinariaInstrumentada(const std::vector<int> &arr, int alvo, Metricas &m);
 };
 
 #endif
