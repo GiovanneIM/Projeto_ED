@@ -1,7 +1,4 @@
 #include "../include/AlgoritmosOrdenacao.hpp"
-#include <algorithm>
-#include <cmath>
-#include <cstring>
 #include <random>
 
 // ==================== BUBBLE SORT ====================
@@ -9,15 +6,15 @@
 void AlgoritmosOrdenacao::bubbleSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // LOOP QUE PERCORRE O VETOR
-    for (int i = 0; i < n - 1; ++i) {
+    for (size_t i = 0; i < n - 1; ++i) {
         // VARIÁVEL PARA INDICAR SE HOUVE TROCA NA ITERAÇÃO
         bool trocou = false;
 
         // LOOP QUE PERCORRE A PARTE NÃO ORDENADA DO VETOR
-        for (int j = 0; j < n - i - 1; ++j) {
+        for (size_t j = 0; j < n - i - 1; ++j) {
             // A CADA LOOP, LÊ 2 VALORES: arr[j] E arr[j+1]
             m.acessos += 2;
             m.comparacoes++;
@@ -51,10 +48,10 @@ void AlgoritmosOrdenacao::bubbleSort(std::vector<int> &arr, Metricas &m)
 void AlgoritmosOrdenacao::insertionSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // LOOP QUE PERCORRE O VETOR A PARTIR DO SEGUNDO ELEMENTO
-    for (int i = 1; i < n; ++i) {
+    for (size_t i = 1; i < n; ++i) {
         // ARMAZENA O ELEMENTO ATUAL QUE SERÁ INSERIDO
         int chave = arr[i];
 
@@ -124,15 +121,15 @@ void AlgoritmosOrdenacao::insertionSort(std::vector<int> &arr, Metricas &m)
 void AlgoritmosOrdenacao::selectionSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // LOOP QUE PERCORRE O VETOR
-    for (int i = 0; i < n - 1; ++i) {
+    for (size_t i = 0; i < n - 1; ++i) {
         // ÍNDICE DO MENOR ELEMENTO DA PARTE NÃO ORDENADA
         int min_idx = i;
 
         // LOOP QUE PERCORRE A PARTE NÃO ORDENADA
-        for (int j = i + 1; j < n; ++j) {
+        for (size_t j = i + 1; j < n; ++j) {
             // LEITURA DE arr[min_idx] E arr[j]
             m.acessos += 2;
 
@@ -172,7 +169,7 @@ void AlgoritmosOrdenacao::selectionSort(std::vector<int> &arr, Metricas &m)
 void AlgoritmosOrdenacao::mergeSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // CRIANDO VETOR AUXILIAR
     std::vector<int> aux(n);
@@ -444,17 +441,17 @@ void AlgoritmosOrdenacao::quickSortRecursivoRandomizado(std::vector<int> &arr, i
 void AlgoritmosOrdenacao::heapSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // CONSTRÓI O MAX HEAP A PARTIR DOS ELEMENTOS NÃO-FOLHA
-    for (int i = n / 2 - 1; i >= 0; --i) {
+    for (size_t i = n / 2 - 1; i >= 0; --i) {
 
         // AJUSTA A PROPRIEDADE DO HEAP
         heapify(arr, n, i, m, 0);
     }
 
     // REMOVE OS ELEMENTOS DO HEAP UM A UM
-    for (int i = n - 1; i > 0; --i) {
+    for (size_t i = n - 1; i > 0; --i) {
 
         // MOVE O MAIOR ELEMENTO PARA O FINAL DO VETOR
         swap(arr[0], arr[i], m);
@@ -531,7 +528,7 @@ void AlgoritmosOrdenacao::heapify(std::vector<int> &arr, int n, int i, Metricas 
 void AlgoritmosOrdenacao::shellSort(std::vector<int> &arr, Metricas &m)
 {
     // OBTER O TAMANHO DO VETOR
-    int n = arr.size();
+    size_t n = arr.size();
 
     // INICIALIZA O GAP UTILIZANDO A SEQUÊNCIA DE KNUTH
     // gap = (3^k - 1) / 2
@@ -546,7 +543,7 @@ void AlgoritmosOrdenacao::shellSort(std::vector<int> &arr, Metricas &m)
     while (gap >= 1) {
 
         // PERCORRE O VETOR A PARTIR DO GAP
-        for (int i = gap; i < n; ++i) {
+        for (size_t i = gap; i < n; ++i) {
 
             // ARMAZENA O ELEMENTO ATUAL
             int temp = arr[i];
