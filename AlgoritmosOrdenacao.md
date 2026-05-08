@@ -95,7 +95,7 @@ Resultado: `[2, 5, 4, 6, 1, 3]`
 - Compara `4` com `2` - Não move `2`
 - Insere `4` entre `2` e `5`
 
-Resultado: `[2, 5, 4, 6, 1, 3]`
+Resultado: `[2, 4, 5, 6, 1, 3]`
 
 ### Finalização
 O algoritmo continua até inserir o último elemento

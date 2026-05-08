@@ -1,0 +1,132 @@
+// ALGORITMOS OPCIONAIS
+
+    static void countingSort(std::vector<int> &arr, Metricas &m, int maxValor = -1);
+    static void radixSort(std::vector<int> &arr, Metricas &m);
+
+
+
+
+// ==================== COUNTING SORT (opcional) ====================
+
+void AlgoritmosOrdenacao::countingSort(std::vector<int> &arr, Metricas &m, int maxValor)
+{
+    if (arr.empty())
+        return;
+
+    // Encontra o valor máximo se não foi fornecido
+    if (maxValor == -1) {
+        maxValor = arr[0];
+        for (size_t i = 1; i < arr.size(); ++i) {
+            m.acessos++;
+            m.comparacoes++;
+            if (arr[i] > maxValor) {
+                maxValor = arr[i];
+            }
+        }
+    }
+
+    // Vetor de contagem
+    std::vector<int> contagem(maxValor + 1, 0);
+    m.memoriaAuxiliarBytes = (maxValor + 1) * sizeof(int);
+
+    // Conta ocorrências
+    for (size_t i = 0; i < arr.size(); ++i) {
+        m.acessos++; // leitura de arr[i]
+        contagem[arr[i]]++;
+        m.acessos++; // escrita em contagem
+        m.trocas++;
+    }
+
+    // Soma acumulada
+    for (int i = 1; i <= maxValor; ++i) {
+        contagem[i] += contagem[i - 1];
+        m.acessos += 2; // leitura/escrita em contagem
+    }
+
+    // Vetor de saída
+    std::vector<int> saida(arr.size());
+    m.memoriaAuxiliarBytes += arr.size() * sizeof(int);
+
+    // Constrói array ordenado (estável - percorrendo do fim)
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        m.acessos++; // leitura de arr[i]
+        int val = arr[i];
+        int pos = contagem[val] - 1;
+        saida[pos] = val;
+        m.acessos += 2; // leitura de contagem e escrita em saida
+        m.trocas++;
+        contagem[val]--;
+        m.acessos++; // escrita em contagem
+    }
+
+    // Copia de volta
+    for (size_t i = 0; i < arr.size(); ++i) {
+        arr[i] = saida[i];
+        m.acessos += 2; // leitura de saida e escrita em arr
+        m.trocas++;
+    }
+}
+
+// ==================== RADIX SORT (opcional) ====================
+
+void AlgoritmosOrdenacao::countingSortPorDigito(std::vector<int> &arr, int exp, Metricas &m)
+{
+    int n = arr.size();
+    std::vector<int> saida(n);
+    int contagem[10] = {0};
+    m.memoriaAuxiliarBytes = n * sizeof(int) + 10 * sizeof(int);
+
+    // Conta dígitos
+    for (int i = 0; i < n; ++i) {
+        m.acessos++; // leitura de arr[i]
+        int digito = (arr[i] / exp) % 10;
+        contagem[digito]++;
+        m.acessos++; // escrita em contagem
+        m.trocas++;
+    }
+
+    // Soma acumulada
+    for (int i = 1; i < 10; ++i) {
+        contagem[i] += contagem[i - 1];
+        m.acessos += 2;
+    }
+
+    // Constrói array ordenado
+    for (int i = n - 1; i >= 0; --i) {
+        m.acessos++; // leitura de arr[i]
+        int digito = (arr[i] / exp) % 10;
+        int pos = contagem[digito] - 1;
+        saida[pos] = arr[i];
+        m.acessos += 2;
+        m.trocas++;
+        contagem[digito]--;
+        m.acessos++;
+    }
+
+    // Copia de volta
+    for (int i = 0; i < n; ++i) {
+        arr[i] = saida[i];
+        m.acessos += 2;
+        m.trocas++;
+    }
+}
+
+void AlgoritmosOrdenacao::radixSort(std::vector<int> &arr, Metricas &m)
+{
+    if (arr.empty())
+        return;
+
+    // Encontra o valor máximo
+    int maxValor = arr[0];
+    for (size_t i = 1; i < arr.size(); ++i) {
+        m.acessos++;
+        if (arr[i] > maxValor) {
+            maxValor = arr[i];
+        }
+    }
+
+    // Aplica counting sort para cada dígito
+    for (int exp = 1; maxValor / exp > 0; exp *= 10) {
+        countingSortPorDigito(arr, exp, m);
+    }
+}
