@@ -24,10 +24,15 @@ struct ResultadoBusca {
 
 class BenchmarkBusca {
 public:
-    // Configuração do benchmark
+    // Configuração do Benchmark
     struct Config {
+        // Tamanhos de vetores
         std::vector<int> tamanhos = {1000, 5000, 10000, 50000, 100000};
+
+        // Número de repetições para cada configuração
         int repeticoes = 30;
+
+        // Seed da geração aleatória
         unsigned int seed = 42;
     };
     
@@ -56,12 +61,6 @@ private:
     
     // Testa busca binária instrumentada
     ResultadoBusca testarBuscaBinariaInstrumentada(const std::vector<int>& vetor, int alvo);
-    
-    // Testa busca binária recursiva
-    ResultadoBusca testarBuscaBinariaRecursiva(const std::vector<int>& vetor, int alvo);
-    
-    // Testa busca ternária
-    ResultadoBusca testarBuscaTernaria(const std::vector<int>& vetor, int alvo);
     
     // Funções estatísticas
     double calcularMedia(const std::vector<ResultadoBusca>& resultados, 

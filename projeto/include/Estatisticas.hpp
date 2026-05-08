@@ -2,11 +2,13 @@
 #include <vector>
 #include <cmath>
 
-/**
+/** .
+ * @brief Struct para armazenar as estatística de cada experimento
  * 
  */
-struct ResumoEstatistico
+struct AnaliseEstatistica
 {
+    double total;
     double media;
     double desvioPadrao;
     double minimo;
@@ -20,5 +22,5 @@ struct ResumoEstatistico
 class Estatisticas
 {
 public:
-    static ResumoEstatistico calcular(const std::vector<double> &dados);
+    static AnaliseEstatistica calcular(const std::vector<double> &dados);
 };

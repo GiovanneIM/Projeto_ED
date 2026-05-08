@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <numeric>
 
-ResumoEstatistico Estatisticas::calcular(const std::vector<double> &dados)
+AnaliseEstatistica Estatisticas::calcular(const std::vector<double> &dados)
 {
-    ResumoEstatistico r;
+    AnaliseEstatistica r;
     size_t n = dados.size();
     if (n == 0)
         return r;

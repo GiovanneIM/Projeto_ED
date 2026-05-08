@@ -41,21 +41,6 @@ struct Metricas {
 
 class Instrumentador {
   public:
-    // Incrementa o valor do número de comparações
-    static void registrarComparacao(Metricas &m) { m.comparacoes++; }
-
-    // Incrementa o valor do número de trocas
-    static void registrarTroca(Metricas &m) { m.trocas++; }
-
-    // Incrementa o valor do número de acessos
-    static void registrarAcesso(Metricas &m) { m.acessos++; }
-
-    // Incrementa o valor do número de acessos
-    static void registrarAcessos(Metricas &m, int qtd) { m.acessos += qtd; }
-
-    // Incrementa o valor da profundidade
-    static void registrarProfundidade(Metricas &m, int atual) { m.profundidadeRecursao++; };
-
     /**
      * @brief Realiza a chamada de uma função e retorna o tempo de execução dela
      *
@@ -76,15 +61,5 @@ class Instrumentador {
 
         // Retornando a diferença entre os tempos
         return std::chrono::duration<double>(fim - inicio).count();
-    }
-
-    template <typename Func> static Metricas executarComMetricas(Func &&func)
-    {
-        Metricas m;
-        double tempo = medirTempo([&]() {
-            func(m);
-        });
-        m.tempoSegundos = tempo;
-        return m;
     }
 };
