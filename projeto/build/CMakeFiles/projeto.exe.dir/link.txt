@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/projeto.exe.dir/main.cpp.o CMakeFiles/projeto.exe.dir/src/AlgoritmosBusca.cpp.o CMakeFiles/projeto.exe.dir/src/AlgoritmosOrdenacao.cpp.o CMakeFiles/projeto.exe.dir/src/GeradorVetores.cpp.o -o projeto.exe 
