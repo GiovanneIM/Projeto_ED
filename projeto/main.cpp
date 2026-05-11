@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include <fstream>
+#include <unordered_map>
 
 Config Benchmark::config{};
 
@@ -15,6 +16,7 @@ Config Benchmark::config{};
 // g++ ./main.cpp ./src/*.cpp -I ./include -o main.exe
 
 std::string gerarNomeArquivo();
+std::string gerarNomeArquivo2(std::string nome);
 void cabecalho(std::ofstream &arquivo);
 void salvarCSV(std::ofstream &arquivo,
                int tamanho,
@@ -38,57 +40,54 @@ int main()
 
 void executarBenchmark()
 {
-    // CRIANDO ARQUIVO CSV
-    std::ofstream arquivo(gerarNomeArquivo());
-    arquivo << std::fixed << std::setprecision(2);
-
-    // ESCREVENDO CABEÇALHO NO ARQUIVO
-    cabecalho(arquivo);
-
-    // NÚMERO DE REPETIÇÕES
+    // DADOS DOS TESTES
     int execucoes = Benchmark::config.repeticoes;
-
-    // VETOR DE TAMANHOS
     std::vector<int> tamanhos = Benchmark::config.tamanhos;
-
-    // VETOR DE CENARIOS
     std::vector<std::string> cenarios = Benchmark::config.cenarios;
-
-    // VETOR DE ALGORIMOS DE ORDENAÇÃO
     auto algoritmos = Benchmark::config.algOrdenacao;
 
-    // Loop n × cenário × algoritmo
+    std::unordered_map<std::string, std::ofstream> arquivos;
 
+    // ABRINDO OS ARQUIVOS CSVs
+    for (const auto &[nomeAlg, _] : Benchmark::config.algOrdenacao) {
+        std::ofstream arq(gerarNomeArquivo2(nomeAlg));
+        arq << std::fixed << std::setprecision(2);
+        cabecalho(arq);
+
+        arquivos.emplace(nomeAlg, std::move(arq));
+    }
+
+    // Loops n × cenário × algoritmo
     // PARA CADA TAMANHO DE VETOR
     for (int n : tamanhos) {
 
         // PARA CADA CENÁRIO
         for (const auto &cenario : cenarios) {
 
+            // GERADOR DE DADOS
+            auto gerador = [cenario, n]() -> std::vector<int> {
+                if (cenario == "Aleatorio")
+                    return GeradorVetores::aleatorio(n);
+
+                if (cenario == "Ordenado")
+                    return GeradorVetores::ordenado(n);
+
+                if (cenario == "Reverso")
+                    return GeradorVetores::reverso(n);
+
+                if (cenario == "ParcialmenteOrdenado")
+                    return GeradorVetores::parcialmenteOrdenado(n);
+
+                if (cenario == "AltaRepeticao")
+                    return GeradorVetores::altaRepeticao(n);
+
+                return GeradorVetores::gaussiano(n);
+            };
+
             // PARA CADA ALGORITMO
             for (const auto &[nomeAlg, funcAlg] : algoritmos) {
 
-                // GERADOR DE DADOS
-                auto gerador = [cenario, n]() -> std::vector<int> {
-                    if (cenario == "Aleatorio")
-                        return GeradorVetores::aleatorio(n);
-
-                    if (cenario == "Ordenado")
-                        return GeradorVetores::ordenado(n);
-
-                    if (cenario == "Reverso")
-                        return GeradorVetores::reverso(n);
-
-                    if (cenario == "ParcialmenteOrdenado")
-                        return GeradorVetores::parcialmenteOrdenado(n);
-
-                    if (cenario == "AltaRepeticao")
-                        return GeradorVetores::altaRepeticao(n);
-
-                    return GeradorVetores::gaussiano(n);
-                };
-
-                // EXECUTANDO 30 VEZES
+                // EXECUTANDO A COMBINAÇÃO 30 VEZES
                 std::vector<Metricas> execucoes = Benchmark::realizarTeste(gerador, funcAlg);
 
                 // EXTRAINDO AS MÉTRICAS
@@ -116,7 +115,7 @@ void executarBenchmark()
                 AnaliseEstatistica tempoStats = Estatisticas::calcularAnaliseEstatistica(tempos);
                 AnaliseEstatistica memoriaAuxStats = Estatisticas::calcularAnaliseEstatistica(memoriaAux);
 
-                // EXIBINDO AS ESTATISTICAS
+                // EXIBINDO AS ESTATISTICAS NO TERMINAL
                 constexpr int W = 18;
 
                 std::cout << std::fixed << std::setprecision(2);
@@ -153,12 +152,12 @@ void executarBenchmark()
                 Estatisticas::exibirAnaliseEstatistica("MEM_AUX(bytes)", memoriaAuxStats);
 
                 // SALVANDO AS ESTATISTICAS NO ARQUIVO
-                salvarCSV(arquivo, n, cenario, nomeAlg, "COMPARACOES", compStats);
-                salvarCSV(arquivo, n, cenario, nomeAlg, "TROCAS", trocasStats);
-                salvarCSV(arquivo, n, cenario, nomeAlg, "ACESSOS", acessoStats);
-                salvarCSV(arquivo, n, cenario, nomeAlg, "PROF_REC", profRecStats);
-                salvarCSV(arquivo, n, cenario, nomeAlg, "TEMPO", tempoStats);
-                salvarCSV(arquivo, n, cenario, nomeAlg, "MEM_AUX", memoriaAuxStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "COMPARACOES", compStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "TROCAS", trocasStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "ACESSOS", acessoStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "PROF_REC", profRecStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "TEMPO", tempoStats);
+                salvarCSV(arquivos[nomeAlg], n, cenario, nomeAlg, "MEM_AUX", memoriaAuxStats);
 
                 std::cout << "\n";
             }
@@ -182,6 +181,18 @@ std::string gerarNomeArquivo()
     oss << "./CSV/benchmark_"
         << std::put_time(&local, "%Y-%m-%d_%H-%M-%S")
         << ".csv";
+
+    return oss.str();
+}
+
+/**
+ * @brief Cria um arquivo CSV com o nome passado
+ */
+std::string gerarNomeArquivo2(std::string nome)
+{
+    std::ostringstream oss;
+
+    oss << "./CSV/benchmark_" << nome << ".csv";
 
     return oss.str();
 }

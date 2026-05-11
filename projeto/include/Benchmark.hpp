@@ -17,8 +17,8 @@ struct Config {
     int repeticoes = 30;
 
     // TAMANHOS DOS VETORES
-    // std::vector<int> tamanhos = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-    std::vector<int> tamanhos = {100000, 500000, 1000000};
+    std::vector<int> tamanhos = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+    // std::vector<int> tamanhos = {1000, 5000, 10000};
 
     // CENÁRIO DE DADOS
     std::vector<std::string> cenarios = {
@@ -31,14 +31,15 @@ struct Config {
 
     // VETOR COM OS ALGORITMOS DE ORDENAÇÃO
     std::vector<std::pair<std::string, void (*)(std::vector<int> &, Metricas &)>> algOrdenacao = {
-        // {"BubbleSort", AlgoritmosOrdenacao::bubbleSort},
+        {"BubbleSort", AlgoritmosOrdenacao::bubbleSort},
         {"InsertionSort", AlgoritmosOrdenacao::insertionSort},
         {"SelectionSort", AlgoritmosOrdenacao::selectionSort},
         {"MergeSort", AlgoritmosOrdenacao::mergeSort},
         {"QuickSort", AlgoritmosOrdenacao::quickSort},
         {"QuickSortRandomizado", AlgoritmosOrdenacao::quickSortRandomizado},
         {"HeapSort", AlgoritmosOrdenacao::heapSort},
-        {"ShellSort", AlgoritmosOrdenacao::shellSort}};
+        {"ShellSort", AlgoritmosOrdenacao::shellSort}
+    };
 
     // ALGORITMOS DE BUSCA
     std::vector<std::string> algBusca = {"BuscaSequencial", "BuscaBinaria",
