@@ -3,6 +3,8 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iomanip>
+#include <iostream>
 #include <numeric>
 #include <vector>
 
@@ -61,7 +63,8 @@ class Estatisticas {
         return r;
     };
 
-    template <typename T> static AnaliseEstatistica calcularAnaliseEstatistica(const std::vector<T> &dados)
+    template <typename T>
+    static AnaliseEstatistica calcularAnaliseEstatistica(const std::vector<T> &dados)
     {
         AnaliseEstatistica stats{};
         const size_t n = dados.size();
@@ -114,6 +117,28 @@ class Estatisticas {
         stats.ic95_superior = stats.media + erro;
 
         return stats;
+    }
+
+    static void exibirAnaliseEstatistica(std::string titulo, AnaliseEstatistica analise)
+    {
+        constexpr int W = 18;
+
+        std::cout
+            << std::left
+            << std::setw(W) << titulo
+
+            << std::right
+            << std::setw(W) << analise.media
+            << std::setw(W) << analise.desvioPadrao
+            << std::setw(W) << analise.minimo
+            << std::setw(W) << analise.maximo
+            << std::setw(W) << analise.mediana
+            << std::setw(W) << analise.coeficienteVariacao
+            << std::setw(W) << analise.ic95_superior
+            << std::setw(W) << analise.ic95_inferior
+            << '\n';
+
+        return;
     }
 };
 

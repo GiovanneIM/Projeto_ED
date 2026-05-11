@@ -13,7 +13,7 @@ struct Metricas {
     long long acessos = 0;
     int iteracoes = 0;
     int profundidadeRecursao = 0;
-    double tempo = 0.0;
+    long long tempo = 0.0;
     size_t memoriaAuxiliarBytes = 0;
 
     /// REDEFINE OS VALORES DA MÉTRICA
@@ -37,7 +37,7 @@ class Instrumentador {
      *
      * @return Tempo de execução da função
      */
-    template <typename Func> static double medirTempo(Func &&func)
+    template <typename Func> static long long medirTempo(Func &&func)
     {
         // Obtendo o momento em que a função inicia
         auto inicio = std::chrono::high_resolution_clock::now();
@@ -48,8 +48,12 @@ class Instrumentador {
         // Obtendo o momento em que a função finalizou
         auto fim = std::chrono::high_resolution_clock::now();
 
+        auto duracao = fim - inicio;
+        auto ns = std::chrono::duration_cast<std::chrono::nanoseconds>(duracao);
+
         // Retornando a diferença entre os tempos
-        return std::chrono::duration<double>(fim - inicio).count();
+        // return std::chrono::duration<double>(fim - inicio).count();
+        return ns.count();
     }
 };
 

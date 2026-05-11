@@ -10,21 +10,27 @@
 
 // Configurações dos Testes
 struct Config {
-    // Seed fixa para reprodutibilidade
+    // SEED PARA RANDOMIZAÇÃO
     unsigned int seed = 42;
 
-    // Número de repetições por configuração
+    // NÚMERO DE REPETIÇÃO DE CADA TESTE
     int repeticoes = 30;
 
-    // Tamanhos dos vetores (escala obrigatória)
-    std::vector<int> tamanhos = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+    // TAMANHOS DOS VETORES
+    // std::vector<int> tamanhos = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+    std::vector<int> tamanhos = {1000, 5000};
 
-    // Cenários de dados
+    // CENÁRIO DE DADOS
     std::vector<std::string> cenarios = {
-        "Aleatorio", "Ordenado", "Reverso", "ParcialmenteOrdenado", "AltaRepeticao", "QuaseReal"};
+        "Aleatorio",
+        "Ordenado",
+        "Reverso",
+        "ParcialmenteOrdenado",
+        "AltaRepeticao",
+        "QuaseReal"};
 
-    // Algoritmos de ordenação a serem testados
-    std::map<std::string, void (*)(std::vector<int> &, Metricas &)> algOrdenacao = {
+    // VETOR COM OS ALGORITMOS DE ORDENAÇÃO
+    std::vector<std::pair<std::string, void (*)(std::vector<int> &, Metricas &)>> algOrdenacao = {
         {"BubbleSort", AlgoritmosOrdenacao::bubbleSort},
         {"InsertionSort", AlgoritmosOrdenacao::insertionSort},
         {"SelectionSort", AlgoritmosOrdenacao::selectionSort},
@@ -34,7 +40,7 @@ struct Config {
         {"HeapSort", AlgoritmosOrdenacao::heapSort},
         {"ShellSort", AlgoritmosOrdenacao::shellSort}};
 
-    // Algoritmos de busca a serem testados
+    // ALGORITMOS DE BUSCA
     std::vector<std::string> algBusca = {"BuscaSequencial", "BuscaBinaria",
                                          "BuscaBinariaInstrumentada"};
 };
