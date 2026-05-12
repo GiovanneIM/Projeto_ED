@@ -42,7 +42,7 @@ Veja mais em: [Algoritmos de Ordenação](./AlgoritmosOrdenacao.md)
 
 ---
 
-## Algoritmos de Ordenação
+## Algoritmos de Busca
 
 Veja mais em: [Algoritmos de Busca](./AlgoritmosBusca.md)
 
