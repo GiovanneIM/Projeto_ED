@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # LENDO O CSV
-df = pd.read_csv("../../CSV/benchmark_2026-05-11_01-18-13.csv", sep=";")
+df = pd.read_csv("../../CSV/dados.csv", sep=";")
 
 # FILTRANDO APENAS TEMPO
 tempo = df[df["Dado"] == "COMPARACOES"]

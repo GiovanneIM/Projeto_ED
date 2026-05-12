@@ -49,12 +49,12 @@ void executarBenchmark()
     std::unordered_map<std::string, std::ofstream> arquivos;
 
     // ABRINDO OS ARQUIVOS CSVs
-    for (const auto &[nomeAlg, _] : Benchmark::config.algOrdenacao) {
-        std::ofstream arq(gerarNomeArquivo2(nomeAlg));
+    for (const auto &[nomeAlgoritmo, _] : Benchmark::config.algOrdenacao) {
+        std::ofstream arq(gerarNomeArquivo2(nomeAlgoritmo));
         arq << std::fixed << std::setprecision(2);
         cabecalho(arq);
 
-        arquivos.emplace(nomeAlg, std::move(arq));
+        arquivos.emplace(nomeAlgoritmo, std::move(arq));
     }
 
     // Loops n × cenário × algoritmo
@@ -86,6 +86,12 @@ void executarBenchmark()
 
             // PARA CADA ALGORITMO
             for (const auto &[nomeAlg, funcAlg] : algoritmos) {
+                if ((nomeAlg == "BubbleSort" ||
+                     nomeAlg == "InsertionSort" ||
+                     nomeAlg == "SelectionSort") &&
+                    n > 10000) {
+                    continue;
+                }
 
                 // EXECUTANDO A COMBINAÇÃO 30 VEZES
                 std::vector<Metricas> execucoes = Benchmark::realizarTeste(gerador, funcAlg);
